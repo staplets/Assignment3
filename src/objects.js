@@ -10,7 +10,13 @@
 
 function returnObjectLiteral() {
   //your code here
-  return {type: "Goldfish", brand: "Pepperidge Farm", flavor: "Cheddar", count: 2000}; //Modify ONLY this line
+  return {
+    type: "Goldfish",
+    brand: "Pepperidge Farm",
+    flavor: "Cheddar",
+    count: 2000
+  };
+  //Modify ONLY this line
   //end your code
 }
 
@@ -35,33 +41,24 @@ function returnObjectLiteral() {
 */
 
 //your code here
-function Cat(name, color)
-{
-	this.name = name;
-	this.color = color;
-	var destroyedItems = new Array();
-	var destructionCost = 0;
-	
-	this.destroyFurniture = function(name, cost)
-	{
-		destroyedItems.push({name: name, cost: cost});
-		destructionCost += cost;
-	}
-	
-	this.lastDestroyedFurniture = function()
-	{
-		return destroyedItems[(destroyedItems.length - 1)];
-	}
-	
-	this.nthDestroyed = function(n)
-	{
-		return destroyedItems[n];
-	}
-	
-	this.totalDestroyed = function()
-	{
-		return destructionCost;
-	}
+function Cat(name, color) {
+  this.name = name;
+  this.color = color;
+  var destroyedItems = [];
+  var destructionCost = 0;
+  this.destroyFurniture = function(name, cost) {
+    destroyedItems.push({name: name, cost: cost});
+    destructionCost += cost;
+  };
+  this.lastDestroyedFurniture = function() {
+    return destroyedItems[destroyedItems.length - 1];
+  };
+  this.nthDestroyed = function(n) {
+    return destroyedItems[n];
+  };
+  this.totalDestroyed = function() {
+    return destructionCost;
+  };
 }
 //end your code
 
@@ -88,15 +85,10 @@ myCat.destroyFurniture("Blinds", 550);
 * @return {string} - The cats reaction.
 */
 //your code here
-Cat.prototype.pet = function(n)
-{
-	if(n > 2.5)
-	{
-		return "CLAW!";
-	}
-	else
-	{
-		return "Purr.";
-	}
-}
+Cat.prototype.pet = function(n) {
+  if(n > 2.5) {
+    return "CLAW!";
+  }
+  return "Purr.";
+};
 //end your code

@@ -13,9 +13,8 @@
 */
 
 //your code here
-function uselessFunction()
-{
-	return "useless";
+function uselessFunction() {
+  return "useless";
 }
 //end your code
 
@@ -32,22 +31,19 @@ var barType = typeof bar;
 */
 
 //your code here
-bar = function(doubleArray)
-{
-	for(var i = 0; i < doubleArray.length; i++)
-	{	//If not a number return false
-		if(typeof doubleArray[i] != "number")
-		{
-			return false;
-		}
-		else
-		{	//double each element
-			doubleArray[i] *= 2;
-		}
-	}
-	//operation successful
-	return true;
-}
+bar = function (doubleArray) {
+  var i = 0;
+  for(i = 0; i < doubleArray.length; i++) {
+  //If not a number return false
+    if(typeof doubleArray[i] !== "number") {
+      return false;
+    }
+    //double each element
+    doubleArray[i] *= 2;
+  }
+  //operation successful
+  return true;
+};
 //end your code
 
 /**
@@ -64,22 +60,22 @@ bar = function(doubleArray)
 */
 
 //your code here
-function emailParse(emailArray)
-{
-	var locals = new Array();
-	var domains = new Array();
-	var gtld = new Array();
-	var address = new Array();
-		
-	for(var k = 0; k < emailArray.length; k++)
-	{	//push each addresses separate parts into respective arrays	
-		locals.push(emailArray[k].substring(0, emailArray[k].indexOf("@")));
-		domains.push(emailArray[k].substring((emailArray[k].indexOf("@") + 1), emailArray[k].indexOf(".")));
-		gtld.push(emailArray[k].substring((emailArray[k].lastIndexOf(".") + 1)));
-	}
-	// Push the array of parts into address array
-	address.push(locals, domains, gtld);
-	//Return the address array
-	return address;
+function emailParse(emailArray) {
+  var locals = [];
+  var domains = [];
+  var gtld = [];
+  var address = [];
+  var k = 0;
+
+  //push each address part into respective arrays
+  for(k = 0; k < emailArray.length; k++) {	
+    locals.push(emailArray[k].substring(0, emailArray[k].indexOf("@")));
+    domains.push(emailArray[k].substring((emailArray[k].indexOf("@") + 1), emailArray[k].indexOf(".")));
+    gtld.push(emailArray[k].substring((emailArray[k].lastIndexOf(".") + 1)));
+  }
+  // Push the array of parts into address array
+  address.push(locals, domains, gtld);
+  //Return the address array
+  return address;
 }
 //end your code
